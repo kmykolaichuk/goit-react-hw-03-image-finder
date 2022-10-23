@@ -1,5 +1,13 @@
 import { Component } from 'react';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import Searchbar from './Searchbar/Searchbar';
+import { ImageGallery } from './ImageGallery/ImageGallery';
+import LoadMoreBtn from './Button/LoadMoreBtn';
+import LoaderImg from './Loader/Loader';
+import Modal from './Modal/Modal';
+
+axios.defaults.baseURL = 'https://pixabay.com/api';
 
 export class App extends Component {
   state = {
