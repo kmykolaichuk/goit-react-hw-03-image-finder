@@ -1,11 +1,11 @@
 import { Component } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
-import Searchbar from './Searchbar/Searchbar';
+import { Searchbar } from './Searchbar/Searchbar';
 import { ImageGallery } from './ImageGallery/ImageGallery';
-import LoadMoreBtn from './Button/LoadMoreBtn';
-import LoaderImg from './Loader/Loader';
-import Modal from './Modal/Modal';
+import { LoadMoreBtn } from './Button/Button';
+import { Loader } from './Loader/Loader';
+import { Modal } from './Modal/Modal';
 
 axios.defaults.baseURL = 'https://pixabay.com/api';
 
@@ -87,7 +87,7 @@ export class App extends Component {
         {images.length > 0 && (
           <ImageGallery pictures={images} onClick={this.ontoggleModal} />
         )}
-        {status === 'pending' && <LoaderImg />}
+        {status === 'pending' && <Loader />}
         {(images.length === 12 || images.length > 12) && (
           <LoadMoreBtn onClick={this.onClickLoadBtn} />
         )}

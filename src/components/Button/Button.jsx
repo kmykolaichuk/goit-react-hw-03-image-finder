@@ -1,5 +1,5 @@
-import { Button, DivButton } from './Button.styled';
 import PropTypes from 'prop-types';
+import { Button, DivButton } from './Button.styled';
 
 export const LoadMoreBtn = ({ onClick }) => {
   return (

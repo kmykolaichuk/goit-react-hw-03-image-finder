@@ -1,13 +1,13 @@
 import { Component } from 'react';
-import { AiOutlineSearch } from 'react-icons';
+import { HiSearch } from 'react-icons/hi';
 import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 import {
-  SearchbarHead,
-  SearchForm,
-  SearchFormButton,
-  SearchFormInput,
-} from './Searchbar.styled.jsx';
+  SearchbarHeader,
+  Form,
+  FormButton,
+  FormInput,
+} from './Searchbar.styled';
 
 export class Searchbar extends Component {
   state = {
@@ -33,13 +33,13 @@ export class Searchbar extends Component {
 
   render() {
     return (
-      <SearchbarHead>
-        <SearchForm onSubmit={this.onSubmit}>
-          <SearchFormButton type="submit">
-            <AiOutlineSearch size={18} />
-          </SearchFormButton>
+      <SearchbarHeader>
+        <Form onSubmit={this.onSubmit}>
+          <FormButton type="submit">
+            <HiSearch size={20} /> <span>Search</span>
+          </FormButton>
 
-          <SearchFormInput
+          <FormInput
             type="text"
             autoComplete="off"
             autoFocus
@@ -47,8 +47,8 @@ export class Searchbar extends Component {
             value={this.state.searchItem}
             onChange={this.onInputChange}
           />
-        </SearchForm>
-      </SearchbarHead>
+        </Form>
+      </SearchbarHeader>
     );
   }
 }
