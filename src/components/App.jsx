@@ -85,14 +85,14 @@ export class App extends Component {
       <>
         <Searchbar onSubmit={this.onFormSubmit} />
         {images.length > 0 && (
-          <ImageGallery pictures={images} onClick={this.ontoggleModal} />
+          <ImageGallery pictures={images} onClick={this.onToggleModal} />
         )}
         {status === 'pending' && <Loader />}
         {(images.length === 12 || images.length > 12) && (
           <LoadMoreBtn onClick={this.onClickLoadBtn} />
         )}
         {showModal && (
-          <Modal onClose={this.ontoggleModal}>
+          <Modal onClose={this.onToggleModal}>
             <img src={largeImageModal} alt="" />
           </Modal>
         )}

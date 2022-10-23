@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import { ImageGalleryItem } from '../ImageGalleryItem/ImageGalleryItem';
 import { ImageGalleryList } from './ImageGallery.styled';
 
-export const ImageGallery = ({ images, onClick }) => {
+export const ImageGallery = ({ pictures, onClick }) => {
   return (
     <ImageGalleryList>
-      {images.map(({ id, webformatURL, largeImageURL }) => (
+      {pictures.map(({ id, webformatURL, largeImageURL }) => (
         <ImageGalleryItem
           key={id}
           webformatURL={webformatURL}
@@ -18,7 +18,7 @@ export const ImageGallery = ({ images, onClick }) => {
 };
 
 ImageGallery.propTypes = {
-  images: PropTypes.arrayOf(
+  pictures: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       webformatURL: PropTypes.string.isRequired,

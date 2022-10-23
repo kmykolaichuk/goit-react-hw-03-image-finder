@@ -36,7 +36,7 @@ export class Searchbar extends Component {
       <SearchbarHeader>
         <Form onSubmit={this.onSubmit}>
           <FormButton type="submit">
-            <HiSearch size={20} /> <span>Search</span>
+            <HiSearch size={26} /> <span>Search</span>
           </FormButton>
 
           <FormInput

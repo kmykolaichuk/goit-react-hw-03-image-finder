@@ -3,9 +3,9 @@ import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import { Overlay, DivModal } from './Modal.styled';
 
-const modalRoot = document.querySelector('#modal-root');
-
 export class Modal extends Component {
+  static propTypes = { children: PropTypes.node.isRequired };
+
   componentDidMount() {
     window.addEventListener('keydown', this.onKeyDown);
   }
@@ -31,11 +31,7 @@ export class Modal extends Component {
       <Overlay onClick={this.onBackdropClick}>
         <DivModal>{this.props.children}</DivModal>
       </Overlay>,
-      modalRoot
+      document.querySelector('#modal-root')
     );
   }
 }
-
-Modal.propTypes = {
-  children: PropTypes.node.isRequired,
-};
