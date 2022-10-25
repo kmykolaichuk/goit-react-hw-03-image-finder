@@ -1,13 +1,11 @@
 import { Component } from 'react';
-import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
+import { fetchImages } from '../api';
 import { Searchbar } from './Searchbar/Searchbar';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { LoadMoreBtn } from './Button/Button';
 import { Loader } from './Loader/Loader';
 import { Modal } from './Modal/Modal';
-
-// axios.defaults.baseURL = 'https://pixabay.com/api';
 
 export class App extends Component {
   state = {
@@ -32,19 +30,12 @@ export class App extends Component {
       }
 
       try {
-        // const response = await axios.get(
-        //   `/?q=${newSearch}&page=${nextPage}&key=29822518-04e2ef9290d818246b595cdf4&image_type=photo&orientation=horizontal&per_page=12`
-        // );
-        // const imageList = response.data.hits.map(
-        //   ({ id, webformatURL, largeImageURL }) => {
-        //     return { id, webformatURL, largeImageURL };
-        //   }
-        // );
+        const imageList = await fetchImages(newSearch, nextPage);
         this.setState(prevState => ({
           images: [...prevState.images, ...imageList],
           status: 'resolved',
         }));
-        if (response.data.hits.length === 0) {
+        if (imageList.length === 0) {
           toast.error(
             'Sorry, there are no images matching your search query. Please, try again.',
             {
@@ -62,7 +53,7 @@ export class App extends Component {
   }
 
   onFormSubmit = searchImage => {
-    this.setState({ searchImage, images: [] });
+    this.setState({ searchImage, images: [], page: 1 });
   };
 
   onClickLoadBtn = () => {

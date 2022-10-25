@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 import { Overlay, DivModal } from './Modal.styled';
 
 export class Modal extends Component {
-  static propTypes = { children: PropTypes.node.isRequired };
-
   componentDidMount() {
     window.addEventListener('keydown', this.onKeyDown);
   }
@@ -35,3 +33,7 @@ export class Modal extends Component {
     );
   }
 }
+
+Modal.propTypes = {
+  children: PropTypes.node.isRequired,
+};
